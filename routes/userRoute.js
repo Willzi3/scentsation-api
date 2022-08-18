@@ -103,7 +103,7 @@ router.delete("/:id", (req, res) => {
         `UPDATE users set email="${email}", password="${hash}", full_name="${full_name}", phone="${phone}", joined_date="${joined_date}", user_type="${user_type}" WHERE user_id = "${req.params.id}"`,
         (err, result) => {
           if (err) throw err;
-          res.send("user successfully updated");
+          res.send(result);
         }
       );
     } catch (error) {
