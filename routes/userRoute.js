@@ -57,7 +57,7 @@ router.post("/", (req, res) => {
     user_type) VALUES ("${email}", "${password}", "${full_name}", "${phone}", "${joined_date}", "${user_type}")`,
       (err, result) => {
         if (err) throw err;
-        res.send("user successfully created");
+        res.send(result);
       }
     );
   } catch (error) {
