@@ -3,7 +3,7 @@ const cors = require("cors"); // Used to prevent errors when working locally
 
 const app = express(); // Initialize express as an app variable
 app.set("port", process.env.PORT || 6969); // Set the port
-app.use(express.json()); // Enable the server to handle JSON requests
+app.use(express.json()); // Enable the server to handle JSON request
 app.use(cors());
 
 app.get("/", (req, res) => {
