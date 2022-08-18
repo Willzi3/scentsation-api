@@ -6,12 +6,10 @@ app.set("port", process.env.PORT || 6969); // Set the port
 app.use(express.json()); // Enable the server to handle JSON requests
 app.use(cors());
 
-app.get("/", (req, res) => {
-    res.json({ msg: "Welcome" });
-});
+
 
 const userRoute = require("./routes/userRoute")
-app.get("/users", (req, res) => {
+app.get("/", (req, res) => {
     res.json({msg: "welcome"})
 })
 app.use("./routes", userRoute)
