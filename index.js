@@ -10,12 +10,11 @@ app.get("/", (req, res) => {
     res.json({ msg: "Welcome" });
 });
 
-const userRoute = require("./routes/userRoute.js")
-app.use("/users", userRoute);
-
-const productRoute = require("./routes/productRoute.js")
-app.use("/products", productRoute);
-
+const userRoute = require("./routes/userRoute")
+app.get("/", (req, res) => {
+    res.json({msg: "welcome"})
+})
+app.use("./users", userRoute)
 app.listen(app.get("port"), () => {
     console.log(`Listening for calls on port ${app.get("port")}`);
     console.log("Press Ctrl+C to exit server");
