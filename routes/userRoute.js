@@ -10,11 +10,11 @@ router.get("/", (req, res) => {
   try {
     con.query("SELECT * FROM users", (err, result) => {
       if (err) throw err;
-      res.json(result);
+      res.send(result);
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json(error);
+    res.status(400).send(error);
   }
 });
 
