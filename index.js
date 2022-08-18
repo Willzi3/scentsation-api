@@ -11,8 +11,11 @@ app.get("/", (req, res) => {
 });
 
 const userRoute = require("./routes/userRoute.js")
-
 app.use("./routes", userRoute)
+
+const productRoute = require("./routes/productRoute.js")
+
+app.use("./routes", productRoute)
 app.listen(app.get("port"), () => {
     console.log(`Listening for calls on port ${app.get("port")}`);
     console.log("Press Ctrl+C to exit server");
