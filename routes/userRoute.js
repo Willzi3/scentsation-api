@@ -8,8 +8,8 @@ const middleware = require("../middleware/auth");
 // Gets all users
 router.get("/", (req, res) => {
   try {
-    con.query("SELECT * FROM users", (error, result) => {
-      if (error) throw error;
+    con.query("SELECT * FROM users", (err, result) => {
+      if (err) throw err;
       res.send(result);
     });
   } catch (error) {
