@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 const userRoute = require("./routes/userRoute")
-app.get("/", (req, res) => {
+app.get("/users", (req, res) => {
     res.json({msg: "welcome"})
 })
 app.use("./routes", userRoute)
