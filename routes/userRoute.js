@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
       if (err) throw err;
       res.send(result);
     });
-    // res.send({ id: req.params.id });
+  
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
