@@ -10,10 +10,10 @@ app.get("/", (req, res) => {
     res.json({ msg: "Welcome" });
 });
 
-const userRoute = require("./routes/userRoute")
+const userRoute = require("./routes/userRoute.js")
 app.use("/users", userRoute);
 
-const productRoute = require("./routes/productRoute")
+const productRoute = require("./routes/productRoute.js")
 app.use("/products", productRoute);
 
 app.listen(app.get("port"), () => {
