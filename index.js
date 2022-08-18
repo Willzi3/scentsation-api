@@ -6,19 +6,19 @@ app.set("port", process.env.PORT || 6969); // Set the port
 app.use(express.json()); // Enable the server to handle JSON request
 app.use(cors());
 
-
+app.get("/", (req, res) => {
+    res.json({ msg: "Welcome" });
+});
 
 const userRoute = require("./routes/userRoute.js")
 const productRoute = require("./routes/productRoute.js")
 
 
 
-app.use("./routes", userRoute)
-app.use("./routes", productRoute)
+app.use("./users", userRoute)
+app.use("./products", productRoute)
 
-app.get("/", (req, res) => {
-    res.json({ msg: "Welcome" });
-});
+
 app.listen(app.get("port"), () => {
     console.log(`Listening for calls on port ${app.get("port")}`);
     console.log("Press Ctrl+C to exit server");
