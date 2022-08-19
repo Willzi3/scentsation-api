@@ -9,10 +9,11 @@ app.get("/", (req, res) => {
     res.json({ msg: "Welcome" });
 });
 
-app.get("/users", (req, res) => {
-    res.sendFile("routes/userRoute.js")
-})
 
+
+const userRoute = require('./routes/userRoute.js')
+
+app.use("/users", userRoute)
 
 app.listen(app.get("port"), () => {
     console.log(`Listening for calls on port ${app.get("port")}`);
