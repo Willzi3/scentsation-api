@@ -15,8 +15,8 @@ const productRoute = require("./routes/productRoute.js")
 
 
 
-app.use("./users", userRoute)
-app.use("./products", productRoute)
+app.use("/users", userRoute)
+app.use("/products", productRoute)
 
 
 app.listen(app.get("port"), () => {
