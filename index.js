@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
     res.json({ msg: "Welcome" });
 });
 
+app.get("/users", (req, res) => {
+    res.json({"users"})
+})
+
 const userRoute = require('./routes/userRoute.js')
 
 app.use("./users", userRoute)
