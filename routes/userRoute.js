@@ -8,13 +8,13 @@ const middleware = require("../middleware/auth");
 // Gets all users
 router.get("/", (req, res) => {
   try {
-    con.query("SELECT * FROM users", (err, result) => {
-      if (err) throw err;
-      res.json(result);
-    });
+      con.query("SELECT * FROM users", (err, result) => {
+          if (err) throw err;
+          res.send(result);
+      });
   } catch (error) {
-    console.log(error);
-    res.status(400).json(error);
+      console.log(error);
+      res.status(400).send(error)
   }
 });
 
@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
       if (err) throw err;
       res.send(result);
     });
-    // res.send({ id: req.params.id });
+  
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
@@ -57,7 +57,7 @@ router.post("/", (req, res) => {
     user_type) VALUES ("${email}", "${password}", "${full_name}", "${phone}", "${joined_date}", "${user_type}")`,
       (err, result) => {
         if (err) throw err;
-        res.send("user successfully created");
+        res.send(result);
       }
     );
   } catch (error) {
@@ -103,7 +103,7 @@ router.delete("/:id", (req, res) => {
         `UPDATE users set email="${email}", password="${hash}", full_name="${full_name}", phone="${phone}", joined_date="${joined_date}", user_type="${user_type}" WHERE user_id = "${req.params.id}"`,
         (err, result) => {
           if (err) throw err;
-          res.send("user successfully updated");
+          res.send(result);
         }
       );
     } catch (error) {

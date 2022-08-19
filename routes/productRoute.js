@@ -53,7 +53,7 @@ router.get("/:id", (req, res) => {
         `UPDATE products set name="${name}", price="${price}", descriptions="${descriptions}", image="${image}", category="${category}", created_by="${created_by}" WHERE product_id = "${req.params.id}"`,
         (err, result) => {
           if (err) throw err;
-          res.send("product successfully updated");
+          res.send(result);
         }
       );
     } catch (error) {
