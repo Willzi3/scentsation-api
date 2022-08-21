@@ -148,24 +148,24 @@ router.delete("/:id", (req, res) => {
   });
   
   // Login
-  // The Route where Decryption happens
-    router.post("/login", (req, res) => {
-        try {
-          let sql = "SELECT * FROM users WHERE login = ?";
-          let user = {
-            email: req.body.email,
-          };
-          con.query(sql, user, async (err, result) => {
-            if (err) throw err;
-            if (result.length === 0) {
-              res.send("Email not found please register");
-            } else {
-              const isMatch = await bcrypt.compare(
-                req.body.password,
-                result[0].password
-              );
-              if (!isMatch) {
-                res.send("Password incorrect");
+router.post("/login", (req, res) => {
+  console.log(req.body)
+  try {
+    let sql = "SELECT * FROM users WHERE ?";
+    let user = {
+      email: req.body.email,
+    };
+    con.query(sql, user, async (err, result) => {
+      if (err) throw err;
+      if (result.length === 0) {
+        res.send("Email not found please register");
+      } else {
+        const isMatch = await bcrypt.compare(
+          req.body.password,
+          result[0].password
+        );
+        if (!isMatch) {
+          res.send("Password incorrect");
               } else {
                 // The information the should be stored inside token
                 const payload = {
