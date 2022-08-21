@@ -17,10 +17,6 @@ const productRoute = require('./routes/productRoute.js')
 app.use("/users", userRoute)
 app.use("/products", productRoute)
 
-
-const loginRoute = require('./routes/userRoute.js')
-
-app.use("/users/login", loginRoute)
 app.listen(app.get("port"), () => {
     console.log(`Listening for calls on port ${app.get("port")}`);
     console.log("Press Ctrl+C to exit server");

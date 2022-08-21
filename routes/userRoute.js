@@ -151,7 +151,7 @@ router.delete("/:id", (req, res) => {
   // The Route where Decryption happens
     router.post("/login", (req, res) => {
         try {
-          let sql = "SELECT * FROM users WHERE ?";
+          let sql = "SELECT * FROM users WHERE login = ?";
           let user = {
             email: req.body.email,
           };
@@ -170,7 +170,7 @@ router.delete("/:id", (req, res) => {
                 // The information the should be stored inside token
                 const payload = {
                   user: {
-                    user_id: result[0].user_id,
+                    id: result[0].id,
                     full_name: result[0].full_name,
                     email: result[0].email,
                     user_type: result[0].user_type,
