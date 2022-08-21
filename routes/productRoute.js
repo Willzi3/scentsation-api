@@ -93,7 +93,8 @@ router.get("/:id", (req, res) => {
             created_by) VALUES ( "${name}", "${price}", "${descriptions}", "${image}", "${category}", "${created_by}" )`,
         (err, result) => {
           if (err) throw err;
-          res.send("product successfully created");
+          console.log("product successfully created")
+          res.send(result);
         }
       );
     } catch (error) {

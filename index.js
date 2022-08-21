@@ -12,8 +12,11 @@ app.get("/", (req, res) => {
 
 
 const userRoute = require('./routes/userRoute.js')
+const productRoute = require('./routes/productRoute.js')
 
 app.use("/users", userRoute)
+app.use("/products", productRoute)
+
 
 const loginRoute = require('./routes/userRoute.js')
 
